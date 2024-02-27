@@ -4,7 +4,7 @@
 * **Operating System:**
 * An operating system provides all fundamental software features of a computer. An OS enables you to use the computer's hardware providing you the basic tools that make the computer useful. All of those features relay on the OS's kernel. Other OS features are owed to additional programs that run atop the kernel.
 * **Kernel:**
-* An OS kernel is a software component that's responsible for managing low-level features of the computer, including the following managing system hardware, memorey allocation, CPU time, and program to program interaction.
+* An OS kernel is a software component that's responsible for managing low-level features of the computer, including the following managing system hardware, memory allocation, CPU time, and program to program interaction.
 * **Components of an operating system:**
 * Command-Line Shells
 * Graphical User Interfaces
