@@ -1,5 +1,5 @@
 ---
-Student: your name
+Student: Tyler McGovern
 semester: Spring 24
 Assignment: Lab 3
 ---
