@@ -60,4 +60,4 @@ Display a line of text
 * **user defined variables**
   * Created by the user and exist only in the script and subshell that runs the script. They allow you to temporarily store data and use it throughout the script.
 * **Why do we need use $ for referencing the value of a variable (using a variable) in a shell script**
-  * The $ is needed so that the shell can distinguish between regular text and variable names. When the shell encounters the $, it knows that it is for a variable and needs to be replaced with a value.
+  * The dollar sign is needed so that the shell can distinguish between regular text and variable names. When the shell encounters the dollar sign, it knows that it is for a variable and needs to be replaced with a value.
