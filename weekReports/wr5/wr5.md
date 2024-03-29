@@ -1,5 +1,10 @@
 # Week Report 5
 
+## Completed Work for week 5
+* [Lab 5](../../labs/lab5/lab5.md)
+* [Notes 3](../../notes/notes1/notes3.md)
+
+
 ## Practice 1
 ![practice1](practice1.png)
 
