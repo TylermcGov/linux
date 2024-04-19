@@ -48,4 +48,61 @@ Displays the last N number of a file
 * Display the last 5 lines of multiple files
   * `tail -n 5 dracula.txt bible.txt warandpeace.txt`
   
-##
+## Cut
+### Definition
+Extracts a specific part of each line in a file and displays it
+### Usage
+`cut`+`option`+`file`
+### Examples
+* Display a list of all users in the system
+  * `cut -d ';' -f1 /etc/passwd`
+* Display a list of all users with their login shell
+  * `cut -d ':' -f1,7 /etc/passwd`
+  
+## Sort
+### Definition
+Used for sorting files
+### Usage
+`sort`+`option`+`file`
+### Examples
+* Sort a file
+  * `sort users.lst`
+* Sort a file in reverse order
+  * `sort -r users.txt`
+* Sort a file with numeric data
+  * `sort -n phones.txt`
+
+## wc
+### Definition
+Prints the number of lines, bytes, and characters in a file
+### Usage
+`wc`+`option`+`file`
+### Examples
+* Display the number of characters in a file
+  * `wc -m users.txt`
+* Display the number of lines in a file
+  * `wc -l users.txt`
+* Display the number of words in a file
+  * `wc -w users.txt`
+  
+## diff
+### Definition
+Compares files and displays the differences between them
+### Usage
+`diff`+`option`+`file1`+`file2`
+### Examples
+* Display the difference between two files
+  * `diff cars.csv cars-backup.csv`
+* Display the difference between two files in a column format
+  * `diff -y cars.csv cars-backup.csv`
+  
+## Grep
+### Definition
+Searches text in a given file
+### Usage
+`grep`+`option`+`search criteria`+`file`
+### Examples
+* Search any line that contains the word "dracula" in the given file
+  * grep 'dracula' ~/Documents/dracula.txt
+* Search for all lines that do not contain the word "war"
+  * grep -v 'war' ~/Documents/Books/war-and-peace.txt
