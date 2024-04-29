@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>simplesite.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="how-to-setup-a-web-server-in-virtualbox-and-ubuntu-server">How to Setup a Web Server in VirtualBox and Ubuntu Server</h1>
+<h2 id="introduction">Introduction</h2>
+<p>These are the instructions and basic summaries on all the essential components to create and host a simple site on a web server. Included in these components are the use of Virtualbox, Ubuntu, Apache, SSH, and Firewalls.</p>
+<h2 id="basic-terminology-that-the-reader-must-know">Basic terminology that the reader must know</h2>
+<h3 id="virtualbox">Virtualbox</h3>
+<p><img src="vbox.png" alt="vbox"><br>
+An open-source platform made by Oracle. It allows users to run multiple guest operating systems on a single host machine.</p>
+<h3 id="ubuntu">Ubuntu</h3>
+<p><img src="ubuntu.png" alt="ubuntu"><br>
+A variant of the Ubuntu Linux distribution made for server environments. It offers a secure platform for hosting websites. It receives regular updates and has a large repository of software packages. It provides tools for system management, security, and virtualization. These features make it suitable for a wide range of server workloads.</p>
+<h3 id="apache">Apache</h3>
+<p><img src="apache.png" alt="apache"><br>
+An open-source web server that is used around the world. It is a very flexible application which allows for efficient handling of connections at the same time. It has support for SSL/TLS encryption which ensures a secure communication.</p>
+<h3 id="ssh">SSH</h3>
+<p><img src="ssh.png" alt="ssh"><br>
+Stands for Secure Shell. It is a cryptographic network protocol that allows for secure communication between two computers over an unsecured network. It provides encrypted connections for secure remote login. SSH authentication usually involves passwords. SSH is an essential tool for secure remote access and administration.</p>
+<h3 id="firewall">Firewall</h3>
+<p><img src="firewall.jpg" alt="ufw"><br>
+A network security device that monitors and controls incoming and outgoing network traffic based on predetermined rules. It is a barrier between a trusted internal network and an untrusted external network.</p>
+<h2 id="step-by-step-instructions">Step-by-step instructions</h2>
+<h3 id="part-1-virtual-machine">Part 1 Virtual Machine</h3>
+<p><img src="server.png" alt="server">
+Minimum requirements are 2 GBs of RAM and 5 GBs of Disk space</p>
+<h3 id="part-2-install-ubuntu-server">Part 2 Install Ubuntu Server</h3>
+<ul>
+<li>Install Ubuntu server 20.04 file
+<img src="ubuntuserver.png" alt="ubuntuserver"></li>
+<li>Create a virtual machine that meets the minimum requirements</li>
+<li>Turn on the virtual machine</li>
+<li>Start the installer</li>
+<li>Choose a server name, username, and password
+<img src="userInfo.png" alt="userinfo"></li>
+</ul>
+<h3 id="part-3-install-apache">Part 3 Install Apache</h3>
+<p><code>sudo apt update</code>
+<code>sudo apt install apache2 -y</code>
+<img src="install-apache.gif" alt="install-apache"></p>
+<h3 id="part-4-setup-ssh">Part 4 Setup SSH</h3>
+<p>To enable the firewall</p>
+<ul>
+<li><code>sudo ufw enable</code></li>
+<li><code>sudo ufw allow 'Apache</code></li>
+<li><code>sudo ufw allow 'OpenSSH'</code>
+To check the status of the firewall</li>
+<li><code>sudo ufw status</code>
+To make sure if Apache and SSH are running</li>
+<li><code>systemctl status apache2 --no-pager</code></li>
+<li><code>systemctl status ssh --no-pager</code>
+If the commands do not say &quot;running&quot;
+<code>sudo systemctl restart apache2 ssh</code>
+<img src="service-status-check.gif" alt="status"></li>
+</ul>
+<h3 id="part-5-setup-virtual-hosts">Part 5 Setup virtual hosts</h3>
+<p>Create the directory for mywebsite as follows:
+<code>sudo mkdir /var/www/mywebsite</code></p>
+<p>Modify the ownership of mywebsite so that it is now owned by your user instead of root
+<code>sudo chown -R $USER:$USER /var/www/mywebsite</code></p>
+<p>Now let’s change the file permission so that the owner can read, write, and execute the files while granting only read and execute permissions to groups and others:
+<code>sudo chmod -R 755 /var/www/mywebsite</code></p>
+<p>We can now create a simple html document to be served from our new virtual host. Create a document with the nano text editor called index.html in the <code>/var/www/mywebsite/</code> directory:
+<code>sudo nano /var/www/mywebsite/index.html.</code></p>
+<p>Once the new document opens, type the following text:</p>
+<html>
+    <head>
+        <title>My First Website</title>
+    </head>
+    <body>
+        <h1>This is a sample document!</h1>
+    </body>
+</html>
+<p>Save and close the file when you are finished.</p>
+<p>We need to create a virtual host file so that this new content can be served. The default configuration is located in <code>/etc/apache2/sites-available/000-default.conf</code></p>
+<p>However, we do not need to touch this file, we can instead create a new one as it is best practice. To create a new config file, we are going to use nano again:
+<code>sudo nano /etc/apache2/sites-available/mywebsite.conf</code></p>
+<p>Add the following text to the domain config file:</p>
+<p>&lt;VirtualHost *:80&gt;
+ServerAdmin webmaster@localhost
+ServerName mywebsite
+ServerAlias www.mywebsite
+DocumentRoot /var/www/mywebsite
+ErrorLog ${APACHE_LOG_DIR}/error.log
+CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost></p>
+<p>Save and close the file when you are finished.</p>
+<p>Now you can enable the site with the following command:
+<code>sudo a2ensite mywebsite.conf</code></p>
+<p>Now lets disable the default domain:
+<code>sudo a2dissite 000-default.conf</code></p>
+<p>Before we can refresh the configuration, we need to add a configuration line to the <code>apache2.conf</code> file. Open the file in nano:
+<code>sudo nano /etc/apache2/apache2.conf</code></p>
+<p>Add the following line at the end of the file:
+<code>ServerName 127.0.0.1</code></p>
+<p>Save and close the file when you are finished.
+Now you can test the configuration for errors:
+<code>sudo apache2ctl configtest</code></p>
+<p>The output of the command should look like this:
+<code>Syntax OK</code></p>
+<p>If there are no errors, restart Apache to apply the changes:
+<code>sudo systemctl restart apache2</code></p>
+<p>Now, if you open a web browser in your host computer and go the URL: <code>http://ip.address.of.your.server/</code> your <code>index.html</code> document should load.</p>
+<p><img src="sample-site-preview.png" alt="samplesite"></p>
+
+</body>
+</html>
